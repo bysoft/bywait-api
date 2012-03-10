@@ -59,6 +59,13 @@ $main->route('GET /',
 	}
 );
 
+$main->route('GET /video.html',
+	function() {
+		echo Template::serve('video.html');
+	}
+);
+
+
 $main->route('GET /photos/popular',
 	function()
 	{
