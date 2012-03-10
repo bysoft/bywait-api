@@ -118,6 +118,51 @@ $main->route('GET /v1/blip/@query',
 	}
 );
 
+
+
+
+$main->route('GET /v1/blip/pagelen/@pagelen',
+  function() {
+  		$pagelen = F3::get('PARAMS["pagelen"]');
+        // $picData=Web::http('GET http://blip.tv/posts/?pagelen='.$pagelen.'&file_type=mp3,m4a,mov,mpg,mp4,m4v&skin=json&no_wrap=1');
+        $picData=Web::http('GET http://blip.tv/posts/?pagelen='.$pagelen.'&&skin=json&no_wrap=1');
+		// $picData=Web::http('GET http://byapp.co/xml/bliptv-daily-changes-2012-03-09.json');
+        // bliptv-daily-changes-2012-03-09.json
+        header('Cache-Control: no-cache, must-revalidate');
+        header('Expires: Mon, 26 Jul 2013 05:00:00 GMT');
+        header('Content-type: application/json');
+        header("Access-Control-Allow-Origin: *");
+        echo $picData;
+	}
+);
+
+$main->route('GET /blip/pagelen/@pagelen',
+  function() {
+  		$pagelen = F3::get('PARAMS["pagelen"]');
+        $picData=Web::http('GET http://byapp.co/v1/blip/pagelen/'.$pagelen);
+        $picData_a = json_decode($picData,true);
+        $picData_o = json_decode($picData);
+
+for ($i = 1; $i <= 10; $i++) {
+
+		echo '<div style="border:1px solid #ff0">';
+	    echo $picData_a[$i]['media']['url'] . '<br />';
+	    echo $picData_a[$i]['description'] . '<br />';
+		echo $picData_a[$i]['title'] . '<br />';	//media_thumbnail_src
+		echo '<img src='.$picData_a[$i]['thumbnailUrl'] . ' /><br />';	//media_thumbnail_src
+		echo '</div>';
+}
+
+        // echo $picData_o->showName;
+        // echo $picData;
+        // var_dump($picData);
+
+
+
+	}
+);
+
+
 $main->route('GET /spotify/query/@query1/@query2', 
 	function(){
 		// $contents = Web::http('GET http://waitwith.us/v1/waiting');
