@@ -1,0 +1,306 @@
+
+.demo-container{
+	position:fixed;
+	top:130px;
+	left:0;
+	z-index:100;
+}
+
+.demo-controls{
+	background:#444 url(../images/bkgs/stripes_tiny_08.png) top left repeat;
+	padding:7px 10px;
+	display:none;
+	border-bottom:2px solid #333;
+	border-top:2px solid #333;
+	z-index:20;
+	position:relative;
+}
+
+.demo-controls-inner{
+	width:206px;
+}
+
+.demo-controls h6{
+	color:#EEE;
+	clear:both;
+}
+
+.demo-thumb{
+	
+	width:30px;
+	height:30px;
+	display:inline-block;
+	float:left;
+	margin:0 5px 5px 0;
+	padding:2px;
+	border:1px solid #ddd;
+	background: #eee; /* Old browsers */
+	background: #eee -moz-linear-gradient(top, rgba(255,255,255,.1) 0%, rgba(0,0,0,.1) 100%); /* FF3.6+ */
+	background: #eee -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,.1)), color-stop(100%,rgba(0,0,0,.1))); /* Chrome,Safari4+ */
+	background: #eee -webkit-linear-gradient(top, rgba(255,255,255,.1) 0%,rgba(0,0,0,.1) 100%); /* Chrome10+,Safari5.1+ */
+	background: #eee -o-linear-gradient(top, rgba(255,255,255,.1) 0%,rgba(0,0,0,.1) 100%); /* Opera11.10+ */
+	background: #eee -ms-linear-gradient(top, rgba(255,255,255,.1) 0%,rgba(0,0,0,.1) 100%); /* IE10+ */
+	background: #eee linear-gradient(top, rgba(255,255,255,.1) 0%,rgba(0,0,0,.1) 100%); /* W3C */
+	
+	box-shadow:inset 0px 1px 1px rgba(255,255,255,.6);
+
+	font-size:8px;
+	text-transform:uppercase;
+	text-decoration:none;
+	line-height:9px;
+	text-align:center;
+	
+}
+
+.demo-thumb#demo-bkg-white{
+	background:#ffffff;	
+}
+.demo-thumb#demo-bkg-smoky{
+	background:#F5F5F5 url(../images/bkgs/bkg_smoky_noise.jpg) top left repeat;
+}
+.demo-thumb#demo-bkg-fiber{
+	background:#F5F5F5 url(../images/bkgs/bkg_smoky_cords.jpg) top left repeat;
+}
+
+
+.demo-skin{
+	line-height:27px;
+}
+
+.demo-tab{
+	
+	padding:7px;
+	background:#444 url(../images/bkgs/stripes_tiny_08.png) top left repeat;
+	position:absolute;
+	left:100%;
+	top:0;
+	display:block;	
+	border-top:2px solid #333;
+}
+
+.demo-tab a{
+	background:#444 url(cog.png) 0px 0px no-repeat;
+	display:block;
+	width:16px;
+	height:16px;
+}
+
+.demo-tab .color-ops{
+	cursor:pointer;
+	position:absolute;
+	font-size:10px;
+	color:#999;
+	text-transform:uppercase;
+	width:90px;
+	bottom:90%;
+	left:0;
+	display:block;
+	background:transparent;
+	
+	-webkit-transform-origin: 0 0;
+    -moz-transform-origin:    0 0;
+    -ms-transform-origin:     0 0;
+    -o-transform-origin:      0 0;
+	
+	
+	/* Safari */
+	-webkit-transform: rotate(-90deg);
+
+	/* Firefox */
+	-moz-transform: rotate(-90deg);
+
+	/* IE */
+	-ms-transform: rotate(-90deg);
+
+	/* Opera */
+	-o-transform: rotate(-90deg);
+
+	
+}
+
+/* IE8 can suck it */
+.ie8 .demo-tab .color-ops,
+.ie8 .demo-label{
+	display:none !important;
+}
+
+.demo-label{
+	z-index:10;
+	position:absolute;
+	top:230px;
+	width:180px;
+	font-size:10px;
+	text-transform:uppercase;
+	text-align:right;
+	
+	-webkit-transform-origin: 0 0;
+    -moz-transform-origin:    0 0;
+    -ms-transform-origin:     0 0;
+    -o-transform-origin:      0 0;
+	
+	/* Safari */
+	-webkit-transform: rotate(-90deg);
+
+	/* Firefox */
+	-moz-transform: rotate(-90deg);
+
+	/* IE */
+	-ms-transform: rotate(-90deg);
+
+	/* Opera */
+	-o-transform: rotate(-90deg);
+
+}
+
+.demo-label-full,
+.demo-label-tablet,
+.demo-label-mobile{
+	position:absolute;
+	-webkit-transition:top .4s ease-in-out;
+	-moz-transition:top .4s ease-in-out;
+	-o-transition:top .4s ease-in-out;
+	transition:top .4s ease-in-out;
+	top:0px;
+	right:0px;
+}
+
+	/* Three-column layout */
+	@media only screen and (min-width: 960px) {
+		.demo-label-tablet,
+		.demo-label-mobile{
+			top:-30px;
+		}
+	}
+
+	/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media only screen and (min-width: 768px) and (max-width: 959px) {
+		.demo-label-full,
+		.demo-label-mobile{
+			top:-30px;			
+		}
+	}
+
+	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+	@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media only screen and (max-width: 767px) {
+		.demo-label-full,
+		.demo-label-tablet{
+			top:-30px;
+		}		
+	}
+
+
+.demo-resizeme{
+	position:fixed;
+	bottom:0;
+	right:0;	
+	width:70px;
+	height:70px;
+	background:transparent url(resize.png) top left no-repeat;
+	z-index:30;
+}
+
+.demo-resizeme .demo-resize-info{
+	position:absolute;
+	right:0;
+	bottom:0;
+	
+	width:140px;
+	height:40px;
+	
+	padding:10px;
+	
+	font-size:12px;
+	font-family:"Droid Serif", Georgia, serif;
+	font-style:italic;
+	
+	opacity:0;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	
+	background: rgba(255,255,255,.8);
+	
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+}
+
+.demo-resizeme:hover .demo-resize-info{
+	opacity:1;
+	/*left:-130px;
+	top:-32px;*/
+	right:70%;
+	bottom:70%;
+}
+
+	/* Three-column layout */
+	@media only screen and (min-width: 960px) and (max-width: 1094px) {
+		.demo-resizeme{
+			display:none;
+		}
+	}
+
+	/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media only screen and (min-width: 768px) and (max-width: 893px) {
+		.demo-resizeme{
+			display:none;
+		}
+	}
+
+	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+	@media only screen and (min-width: 480px) and (max-width: 570px) {
+		.demo-resizeme{
+			display:none;
+		}
+	}
+
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media only screen and (max-width: 450px) {
+		.demo-resizeme{
+			display:none;
+		}
+	}
+	
+	@media only screen and (max-width: 480px) {
+		.demo-container{
+			top:50px;
+			left:-5px;
+		}
+		.demo-tab .color-ops{
+			display:none !important;
+		}
+	}
+	
+	@media only screen and (max-width: 370px) {
+		.demo-container{
+			display:none;
+		}	
+	}
+
+
+.button#toggle-demo-controls{
+	font-size:11px;
+	margin-top:15px;
+	margin-bottom:5px;
+	text-transform:none;
+	font-weight:normal;
+	padding:1px 8px;
+}
+
+.demo-hide .demo-container,
+.demo-hide .demo-resizeme{
+	opacity:0;
+	
+	-webkit-transition: opacity .2s ease-in-out;
+	-moz-transition: opacity .2s ease-in-out;
+	-o-transition: opacity .2s ease-in-out;
+	transition: opacity .2s ease-in-out;
+}
+.demo-hide .demo-container:hover,
+.demo-hide .demo-resizeme:hover{
+	opacity:1;
+	
+}

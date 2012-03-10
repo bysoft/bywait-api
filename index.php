@@ -15,6 +15,7 @@ $main->set('DB',
   )
 );
 
+F3::set('CACHE',FALSE);
 
 $main->route('GET /',
 	function() {
@@ -54,32 +55,116 @@ $main->route('GET /',
 					'Cache engine'
 			)
 		);
-		echo Template::serve('welcome.htm');
+		echo Template::serve('index.html');
+	}
+);
+
+$main->route('GET /photos/popular',
+	function()
+	{
+		header('Content-type: application/json');
+		$contents=Web::http('GET https://api.500px.com/v1/photos?feature=popular&page=1&total_items=4&consumer_key=R1r996a9UrWcY7zIMgbQ54VC9UmYWyAaOOAkBJC9');		
+		echo $contents;
 	}
 );
 
 
+
+
+$main->route('GET /v1/user/@rand',
+  function() {
+  		$rand = F3::get('PARAMS["rand"]');
+
+        DB::sql("SELECT `site` FROM `hashReg` WHERE `key` = '$rand'");
+
+		echo Template::serve('abc.htm');
+	}
+);
+
 $main->route('GET /v1/waiting',
+  function() {
+
+
+# if (!F3::get('SESSION.user')) F3::set('content','security.html');
+
+        $name = F3::get('PARAMS["name"]');
+        header('Cache-Control: no-cache, must-revalidate');
+        header('Expires: Mon, 26 Jul 2013 05:00:00 GMT');
+        header('Content-type: application/json');
+        header("Access-Control-Allow-Origin: *");
+        $personData = DB::sql('SELECT name, phone,field1,field2,field3 FROM seatTables');
+        echo json_encode($personData);
+	}
+);
+
+$main->route('GET /v1',
   function() {
         $name = F3::get('PARAMS["name"]');
         header('Cache-Control: no-cache, must-revalidate');
         header('Expires: Mon, 26 Jul 2013 05:00:00 GMT');
         header('Content-type: application/json');
         header("Access-Control-Allow-Origin: *");
-        $personData = DB::sql('SELECT name, phone,field1,field2 FROM seatTables');
+        $personData = DB::sql('SELECT name, phone,field1,field2,field3 FROM seatTables');
         echo json_encode($personData);
 	}
 );
 
-$main->route('POST /v1/waiting/@name/@phone/@field1/@field2',
+$main->route('GET /v1/blip/@query',
   function() {
+  		$query = F3::get('PARAMS["query"]');
+        $picData=Web::http('GET http://blip.tv/search/?q='.$query.'&skin=json');
+        echo $picData;
+        echo $query;
+	}
+);
+
+$main->route('GET /spotify/query/@query1/@query2', 
+	function(){
+		// $contents = Web::http('GET http://waitwith.us/v1/waiting');
+		// echo $contents;
+		$query1 = F3::get('PARAMS["query1"]');
+		$query2 = F3::get('PARAMS["query2"]');
+
+		echo Web::http(
+			'GET http://ws.spotify.com/search/1/track.json',
+			http_build_query(
+				array(
+					'q'=> $query1 . '+' . $query2
+				)
+			)
+		);
+	}
+);
+$main->route('GET /spotify/query/@query1', 
+	function(){
+		// $contents = Web::http('GET http://waitwith.us/v1/waiting');
+		// echo $contents;
+		$query1 = F3::get('PARAMS["query1"]');
+		$query2 = F3::get('PARAMS["query2"]');
+
+		echo Web::http(
+			'GET http://ws.spotify.com/search/1/track.json',
+			http_build_query(
+				array(
+					'q'=> $query1 . '+' . $query2
+				)
+			)
+		);
+	}
+);
+
+
+$main->route('POST /v1/waiting/@name/@phone/@field1/@field2/@field3',
+  function() {
+//    if (!F3::get('SESSION.user')) F3::set('content','security.html');
     header("Access-Control-Allow-Origin: *");
     $name = F3::resolve('{{@PARAMS.name}}');
     $phone = F3::get('PARAMS["phone"]');
     $field1 = F3::get('PARAMS["field1"]');
     $field2 = F3::get('PARAMS["field2"]');
+    $field3 = F3::get('PARAMS["field3"]');
     $time = '';
-DB::sql('INSERT INTO `waitingdb`.`seatTables` (`id`, `name`, `phone`, `field1`, `field2`, `time`) VALUES (NULL, \''. $name . '\', \'' . $phone . '\', \''. $field1 . '\', \''. $field2 . '\', \''.$time.'\');');
+DB::sql('INSERT INTO `waitingdb`.`seatTables` (`id`, `name`, `phone`, `field1`, `field2`, `field3`, `time`) VALUES (NULL, \''. $name . '\', \'' . $phone . '\', \''. $field1 . '\', \''. $field2 . '\', \''. $field3 . '\', \''.$time.'\');');
 	}
 );
 

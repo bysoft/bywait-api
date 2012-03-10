@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Responsive UI</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/responsive/css/base.css">
+  <link rel="stylesheet" href="/responsive/css/skeleton.css">
+  <link rel="stylesheet" href="/responsive/css/layout.css">
+  <link rel="stylesheet" href="/responsive/css/prettyPhoto.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="/responsive/css/flexslider.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="/responsive/demo/demo.css">
+  <link rel="shortcut icon" href="/responsive/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/responsive/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/responsive/images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/responsive/images/apple-touch-icon-114x114.png">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="/responsive/javascripts/modernizr.js"></script>
+  <!--[if IE 7]>
+    <link rel="stylesheet" href="stylesheets/ie7.css">
+  <![endif]-->
+</head>
+<body class="skin-red bkg-fiber">
+<div class="wrap">
+  <div class="drop-container">
+    <div class="drop-panel">
+      <div class="container">
+        <div class="two-thirds column">
+          <h3>accessible content</h3>
+        </div>
+        <div class="one-third column">
+          <a class="button button-red button-lighttext button-full nobottom" target="_top" href="/">foo bar</a>
+        </div>
+      </div>
+    </div>
+    <div class="drop-bar-container">
+      <div class="container">
+        <div class="drop-bar sixteen columns far-edge">
+          <a href="/" target="_blank" class="social-media tooltip-container" title="Fan on Facebook" ><span class="tooltip-anchor icon facebook-icon"></span><span class="tooltip">Facebook</span></a>
+          <a href="/" target="_blank" class="social-media tooltip-container" title="Follow on Twitter"><span class="tooltip-anchor icon twitter-icon"></span><span class="tooltip">Twitter</span></a>
+          <a href="/" target="_blank" class="social-media tooltip-container" title="Connect on Forrst"><span class="tooltip-anchor icon forrst-icon"></span><span class="tooltip">Forrst</span></a>
+          <a href="/" target="_blank" class="social-media tooltip-container" title="Connect on Dribble"><span class="tooltip-anchor icon dribbble-icon"></span><span class="tooltip">Dribbble</span></a>
+          <a href="#" class="social-media tooltip-container" title="Subscribe on Vimeo"><span class="tooltip-anchor icon vimeo-icon"></span><span class="tooltip">Vimeo</span></a>
+          <a href="#" id="drop-panel-expando">+</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <header id="header" class="container">
+    <div id="header-inner" class="sixteen columns over">
+      <div id="masthead" class="one-third column alpha">
+        <h1 id="site-title" class="remove-bottom"><a href="index">foo</a></h1>
+        <h2 id="sub-title">Responsive / HTML5</h2>
+      </div>
+      <nav id="main-nav" class="two-thirds column omega">
+        <a href="#main-nav-menu" class="mobile-menu-button button">+ Menu</a>
+        <ul id="main-nav-menu" class="nav-menu">
+          <li id="nav-home" class="current" >
+            <a href="index">Home</a>
+<!--             <ul>
+              <li><a href="home-alternate">Home &ndash; Alternate</a></li>
+              <li><a href="home-no-slider">Home &ndash; No Slider</a></li>
+              <li><a href="home-blog">Home + Blog</a></li>
+            </ul>
+ -->          </li>
+          <li id="nav-blog"  >
+            <a href="blog">Blog</a>
+ <!--            <ul>
+              <li><a href="blog">Basic Blog Layout</a></li>
+               <li><a href="blog-grid">Grid Layout</a></li>
+              <li><a href="post-1">Single Post</a></li>
+              <li><a href="post-3">Single Post + Video</a></li>
+             </ul>
+  -->         </li>
+          <li id="nav-portfolio" >
+            <a href="portfolio-3col">Portfolio</a>
+<!--             <ul>
+              <li><a href="portfolio-4col">4 Column Grid Layout</a></li>
+               <li><a href="portfolio-3col">3 Column Grid Layout</a></li>
+              <li><a href="portfolio-2col">2 Column Layout</a></li>
+              <li><a href="portfolio-1col">1 Column Layout</a></li>
+              <li><a href="portfolio-portrait">Portrait Items</a></li>
+              <li><a href="portfolio-single">Single Item</a></li>
+              <li><a href="portfolio-portfolio_movies-5">Single Portrait Item</a></li>
+              <li><a href="portfolio-portfolio_movies-3">Single Item + Video</a></li>
+            </ul>
+ -->          </li>
+          <li id="nav-about" >
+            <a href="about">About</a>
+<!--             <ul>
+              <li><a href="about">Single Page</a></li>
+               <li><a href="responsive-grid">Responsive Grid</a></li>
+              <li><a href="responsive-slider">Responsive Slider</a></li>
+              <li><a href="responsive-video-slider">Video Slider</a></li>
+              <li><a href="#">More</a>
+                <ul>
+                  <li><a href="#">Flyout</a></li>
+                  <li><a href="#">Menus</a></li>
+                  <li><a href="404">404</a></li>
+                </ul>
+              </li>
+             </ul>
+ -->          </li>
+          <li id="nav-contact" ><a href="contact">Contact</a></li>
+        </ul>
+
+      </nav>
+    </div>
+
+  </header>
+  <div class="container" id="main" role="main">
+      <div class="sixteen columns">
+        <div class="flex-container">
+          <div class="flexslider">
+            <ul class="slides">
+              <li>
+                <a href="/"><img src="img/ResponsiveGroup_slide.png" alt="Fully Responsive" /></a>
+              </li>
+              <li>
+                <a href="responsive-slider.php"><img src="images/slides/minimal_design_slide.jpg" alt="Minimalist Design"/></a>
+              </li>
+              <li>
+                <a href="about.php"><img src="images/slides/beautiful_typography_slide.jpg" alt="Beautiful Typography"/></a>
+              </li>
+              <li>
+                <img src="images/slides/html5_slide.jpg" alt="HTML5"/>
+              </li>
+              <li>
+                <a href="/"><img src="images/slides/responsive_layout_slide.jpg" alt="Responsive Layout"/></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="tagline">
+          Welcome to <strong>baz</strong>, a fully responsive site.<br/>
+          
+          <span class="fleuron"></span>
+        </div>
+      </div>
+      <div class="mosaic row clearfix" id="featured-columns">
+        <div class="feature-column one-third column">
+            <a href="img/slides/responsive_940.jpg" data-rel="prettyPhoto" class="img-link preload"
+              title="Agility adapts to any screen size to optimize the user's experience."
+              ><img src="img/slides/responsive_940.jpg" alt="Fully Responsive" class="scale-with-grid" /></a>
+
+            <h4>Fully Responsive</h4>
+            <p>Agility adapts to any screen size to optimize the user's experience.</p>
+        </div>
+        <div class="feature-column one-third column">
+            <a href="#video-0" data-rel="prettyPhoto" class="video-link"
+              title="Built from the ground up on a responsive grid system."
+              ><img src="img/slides/basics_940.jpg" alt="Back to Basics" class="scale-with-grid" /></a>
+            <div id="video-0" class="inline-video-lightbox-content">
+              <div class="video-wrapper">
+                <div class="video-container">
+                  <iframe src="http://player.vimeo.com/video/9679622?title=0&amp;byline=0&amp;portrait=0" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                </div>
+              </div>
+            </div>
+            <h4>Back to Basics</h4>
+            <p>Built from the ground up on a responsive grid system.</p>
+        </div>
+        <div class="feature-column one-third column">
+            <a href="img/slides/beautiful_design_940.jpg" data-rel="prettyPhoto" class="img-link preload"
+              title="Elegantly minimal.  Beautifully simple."
+              ><img src="img/slides/beautiful_design_940.jpg" alt="Beautiful Design" class="scale-with-grid" /></a>
+            <h4>Beautiful Design</h4>
+            <p>Elegantly minimal.  Beautifully simple.</p>
+        </div>
+          <div class="clear"></div>
+      </div>
+      <hr class="mini" />
+      <div class="row">
+        <div class="eight columns">
+          <h6>From the Blog</h6>
+        <div class="bloglist">
+          <article class="post eight columns alpha with-meta">
+            <div class="two columns alpha">
+            <a href="img/parachute_umbrella.jpg" data-rel="prettyPhoto" class="img-link preload"
+              title="by Jeff Finley http://www.flickr.com/photos/jeff_finley/4921806335/"
+              ><img src="img/parachute_umbrella.jpg" alt="Alice's Adventures in Wonderland" class="scale-with-grid" /></a>
+            </div>
+            <div class="six columns omega">
+              <header>
+                <h1><a href="post-4" class="">Alice's Adventures in Wonderland</a></h1>
+            <div class="post-meta">
+              <div class="omega columns alpha">
+                <a href="#" class="post-category">Fantasy</a>
+              </div>
+              <div class="alpha columns omega ">
+                &nbsp;by <a href="#" class="post-author">Lewis Carroll</a> on
+                <time datetime="2011-08-24" class="post-date">Aug 24, 2011</time>
+              </div>
+            </div>
+              </header>
+              <div class="post-excerpt">
+                <p>I should like to conclude the chapter with the above appeal, but cannot, owing to my anxiety to repel a charge often made against whalemen.</p>
+              </div>
+            </div>
+          </article>
+          <article class="post eight columns alpha with-meta">
+            <div class="two columns alpha">
+            <a href="#video-5" data-rel="prettyPhoto" class="video-link"
+              title="Sea Dreams by Playingwithbrushes http://www.flickr.com/photos/playingwithpsp/2093191019"
+              ><img src="img/sea_dreams.jpg" alt="Moby Dick" class="scale-with-grid" /></a>
+            <div id="video-5" class="inline-video-lightbox-content">
+              <div class="video-wrapper">
+                <div class="video-container">
+                  <iframe src="http://player.vimeo.com/video/26877221" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="six columns omega">
+              <header>
+                <h1><a href="post-5" class="">Moby Dick</a></h1>
+            <div class="post-meta">
+              <div class="omega columns alpha">
+                <a href="#" class="post-category">Adventure</a>
+              </div>
+              <div class="alpha columns omega ">
+                &nbsp;by <a href="#" class="post-author">Herman Melville</a> on
+                <time datetime="2011-08-11" class="post-date">Aug 11, 2011</time>
+              </div>
+            </div>
+              </header>
+              <div class="post-excerpt">
+                <p>But it so happened just then, that it was high time for the Captain to mind his own eye. The prodigious strain upon the main-sail had parted the weather-sheet.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        </div>
+        <div class="four columns">
+          <h6>Features</h6>
+          <ul class="link-list checkmark">
+            <li>Responsive Grid System</li>
+            <li>Minimalist Design</li>
+            <li>Beautiful Typography</li>
+            <li>HTML5 &amp; CSS3</li>
+            <li>jQuery Enhanced</li>
+          </ul>
+        </div>
+        <div class="four columns">
+          <h6>More Features</h6>
+          <ul class="link-list pin">
+            <li>Flexible Slider</li>
+            <li>Standard or Grid Blog Layout</li>
+            <li>1 &ndash; 4 Column Portfolios</li>
+            <li>PrettyPhoto Lightbox</li>
+            <li>AJAX Contact Form</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="mini" />
+      <h6>From the Twittersphere</h6>
+      <div id="tweet">Loading Tweets...</div>
+  </div>
+  <footer id="colophon">
+    <div class="footer-upper container">
+      <div class="one-third column">
+        <h3>a&middot;gil&middot;i&middot;ty</h3>
+        <ol>
+          <li>the power of moving quickly and easily; nimbleness.</li>
+          <li>the ability to think and draw conclusions quickly; intellectual acuity.</li>
+        </ol>
+      </div>
+      <div class="one-third column">
+        <h3>Get in touch</h3>
+        <div class="three columns alpha">
+          <strong>co, Inc</strong>
+          <p>New York<br/>
+          999-999-9999<br/>
+          <a class="button" href="contact.php" style="margin:.5em 0 0 0;">Contact</a>
+          </p>
+        </div>
+        <div class="two columns omega">
+          <a href="/" target="_blank" class="social-media tooltip-container" title="Fan on Facebook" ><span class="tooltip-anchor icon facebook-icon"></span><span class="tooltip">Facebook</span></a>
+          <a href="/" target="_blank" class="social-media tooltip-container" title="Follow on Twitter"><span class="tooltip-anchor icon twitter-icon"></span><span class="tooltip">Twitter</span></a>
+          <a href="/" target="_blank" class="social-media tooltip-container" title="Connect on Dribble"><span class="tooltip-anchor icon dribbble-icon"></span><span class="tooltip">Dribbble</span></a>
+          <a href="#" class="social-media tooltip-container" title="Subscribe on Vimeo"><span class="tooltip-anchor icon vimeo-icon"></span><span class="tooltip">Vimeo</span></a>
+        </div>
+      </div>
+      <div class="one-third column">
+        <div class="map_canvas"
+          data-lat="40.4166909"
+          data-lng="-3.7003454"
+          data-address=""
+          data-zoom="12"
+          data-mapTitle=""
+          style="height:150px;width:100%;"></div>
+      </div>
+    </div>
+    <div id="footer-base">
+      <div class="container">
+        <div class="eight columns">
+          &copy; 
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+  <div class="demo-container">
+    <div class="demo-controls">
+      <div class="demo-controls-inner">
+        <h6>Select Background</h6>
+        <a href="#bkg-white" id="demo-bkg-white" class="demo-thumb" title="White">White</a>
+        <a href="#bkg-smoky" id="demo-bkg-smoky" class="demo-thumb" title="Smoky Noise">Smoky Noise</a>
+        <a href="#bkg-fiber" id="demo-bkg-fiber" class="demo-thumb" title="Paper Fiber">Paper Fiber</a>
+        <h6>Select Highlight Color</h6>
+        <a href="#" class="demo-thumb demo-skin button-grey">Grey</a>
+        <a href="#skin-red" id="demo-skin-red" class="demo-thumb demo-skin button-red" data-skinClass="skin-red" title="Chili Red">Red</a>
+        <a href="#skin-blue" id="demo-skin-blue" class="demo-thumb demo-skin button-blue" data-skinClass="skin-blue" title="Sky Blue">Blue</a>
+        <a href="#skin-green" id="demo-skin-green" class="demo-thumb demo-skin button-green" data-skinClass="skin-green" title="Grass Green">Green</a>
+        <a href="#skin-purple" id="demo-skin-purple" class="demo-thumb demo-skin button-purple" data-skinClass="skin-purple" title="Eggplant Purple">Purple</a>
+        <div class="clear"></div>
+        <a href="#" id="toggle-demo-controls" class="button button-grey">Toggle Demo Controls</a>
+      </div>
+    </div>
+    <div class="demo-tab"><a title="Click to change color options" href="#"></a><span class="color-ops">Color Options</span></div>
+    <div class="demo-label">
+      <div class="demo-label-full" title="This is how the site looks for desktop browsers and tablets in landscape mode">Browser / Landscape Tablet</div>
+      <div class="demo-label-tablet" title="This is how the site looks for browsers < 960px wide and tablets in portrait mode">Portrait Tablet</div>
+      <div class="demo-label-mobile" title="This is how the site looks for mobile devices like smartphones">Mobile Device</div>
+    </div>
+  </div>
+  <div class="demo-resizeme">
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="/responsive/js/tabs.js"></script>
+<script src="/responsive/js/jquery.prettyPhoto.js"></script>
+<script src="/responsive/javascripts/flexslider/jquery.flexslider.js"></script>
+<script type="text/javascript" src="/responsive/ajaxcontact/js/jquery.jigowatt.js"></script>
+<script src="javascripts/agility.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="http://twitterjs.googlecode.com/svn/trunk/src/twitter.min.js"></script>
+<!--[if (gte IE 6)&(lte IE 8)]>
+  <script type="text/javascript" src="javascripts/fix-ie.js"></script>
+<![endif]-->
+<script type="text/javascript" src="/responsive/js/demo.js"></script>
+</body>
+</html>
