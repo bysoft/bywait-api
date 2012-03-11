@@ -1,6 +1,15 @@
 <?php
 
+/*
+ __
+|__)\_/
+|__) |
 
+.-. .-. .-. .-. . . . .-. .-. .-.   .-. . . .-.
+`-. | | |-   |  | | | |-| |(  |-     |  |\| |
+`-' `-' '    '  `.'.' ` ' ' ' `-'   `-' ' ` `-'
+
+*/
 
 
 $main = require_once 'lib/base.php';
@@ -65,6 +74,38 @@ $main->route('GET /video.html',
 	}
 );
 
+$main->route('GET /music.html',
+	function() {
+		echo Template::serve('music.html');
+	}
+);
+
+F3::route('GET /v1/bbc/radio1/mix','bbcdata->essentialMix');
+F3::route('GET /v1/bbc/radio1/playing','bbcdata->nowPlaying');
+F3::route('GET /v1/bbc/radio1/photos','bbcdata->latestPhotos');
+
+class bbcdata {
+	function essentialMix() {
+	    $essentialMix = 'http://www.bbc.co.uk/programmes/b006wkfp.json';
+	    $content = Web::http('GET ' . $essentialMix);
+		header('Content-type: application/json');
+	    echo $content;
+	}
+	function nowPlaying(){
+    	$nowPlaying = 'http://www.bbc.co.uk/radio1/nowplaying/latest.json';
+	    $content = Web::http('GET ' . $nowPlaying);
+		header('Content-type: application/json');	    
+	    echo $content;	
+	}	
+	function latestPhotos(){
+	    $latestPhotos = 'http://www.bbc.co.uk/radio1/photos/latest.json';
+	    $content = Web::http('GET ' . $latestPhotos);
+		header('Content-type: application/json');
+	    echo $content;
+	}
+}
+
+
 $main->route('GET /v1/vimeo/@query',
 	function() {
 		// $query = F3::get('PARAMS["query"]');
@@ -82,28 +123,20 @@ $main->route('GET /v1/vimeo/@query',
 		// 		'Accept-Language: en-us'
 		// 	)
 		// );
-
 	}
-
-
-
 );
 
 
 $main->route('GET /v1/vimeo/channels',
 	function() {
-		$contents=Web::http('GET http://vimeo.com/channels');		
+		$contents=Web::http('GET http://vimeo.com/channels');
 		echo $contents;
 		echo '<script src=//google.com/jsapi/></script>';
 		echo "<script>google.load('jquery','1.7.1')</script>";
 		echo "<script>var feat = $('#featured')</script>";
 		echo "<script>$('body').empty().append(feat)</script>";
 		echo "<style>#featured{width:300px}</style>";
-		
 	}
-
-
-
 );
 
 
@@ -130,7 +163,7 @@ $main->route('GET /photos/popular',
 	function()
 	{
 		header('Content-type: application/json');
-		$contents=Web::http('GET https://api.500px.com/v1/photos?feature=popular&page=1&total_items=4&consumer_key=R1r996a9UrWcY7zIMgbQ54VC9UmYWyAaOOAkBJC9');		
+		$contents=Web::http('GET https://api.500px.com/v1/photos?feature=popular&page=1&total_items=4&consumer_key=R1r996a9UrWcY7zIMgbQ54VC9UmYWyAaOOAkBJC9');
 		echo $contents;
 	}
 );
@@ -230,7 +263,7 @@ for ($i = 1; $i <= 10; $i++) {
 );
 
 
-$main->route('GET /spotify/query/@query1/@query2', 
+$main->route('GET /spotify/query/@query1/@query2',
 	function(){
 		// $contents = Web::http('GET http://waitwith.us/v1/waiting');
 		// echo $contents;
@@ -247,7 +280,7 @@ $main->route('GET /spotify/query/@query1/@query2',
 		);
 	}
 );
-$main->route('GET /spotify/query/@query1', 
+$main->route('GET /spotify/query/@query1',
 	function(){
 		// $contents = Web::http('GET http://waitwith.us/v1/waiting');
 		// echo $contents;

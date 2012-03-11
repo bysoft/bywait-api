@@ -5,7 +5,7 @@ jQuery('html').removeClass('no-js').addClass('js');
 
 // When DOM is fully loaded
 jQuery(document).ready(function($) {
-				
+
 
 
 	/* ---------------------------------------------------------------------- */
@@ -19,7 +19,7 @@ jQuery(document).ready(function($) {
 			$cont.data('dir', '')
 			if( e.target.className.indexOf('prev') > -1 ) $cont.data('dir', 'prev');
 		});
-		
+
 		$cont.css('overflow', 'hidden');
 		opts.before.push($.fn.cycle.commonReset);
 		var w = $cont.width();
@@ -58,12 +58,12 @@ jQuery(document).ready(function($) {
 	/* ---------------------------------------------------------------------- */
 	/*	Main Navigation
 	/* ---------------------------------------------------------------------- */
-	
+
 	(function() {
 
 		var $mainNav    = $('#main-nav').children('ul'),
 			optionsList = '<option value="" selected>Navigate...</option>';
-		
+
 		// Regular nav
 		$mainNav.on('mouseenter', 'li', function() {
 			var $this    = $(this),
@@ -95,7 +95,7 @@ jQuery(document).ready(function($) {
 		$('.responsive-nav').on('change', function() {
 			window.location = $(this).val();
 		});
-		
+
 	})();
 
 	/* end Main Navigation */
@@ -158,7 +158,7 @@ jQuery(document).ready(function($) {
 			success:function(data){
 				for (var i=0;i<8;i++){
 					// console.log(data.photos[i].image_url)
-					console.log(data.photos[i].name + data.photos[i].image_url)
+					// console.log(data.photos[i].name + data.photos[i].image_url)
 					$('#content.container .projects-carousel li a').length // img + span
 					var projectAnchor = $('#content.container .projects-carousel li a')
 						var newSrc = data.photos[i].image_url,
@@ -176,7 +176,7 @@ jQuery(document).ready(function($) {
 		  url:url,
 		  type:'get',
 		  success:function(data){
-		  	console.log(data)
+		  	// console.log(data)
 		  	for (var i=0;i<5;i++){
 			  	var imgSrc = data.photos[i].image_url.replace('/2.','/4.')
 			    $('.slide>img').eq(i).attr('src',imgSrc).width('980')
@@ -188,7 +188,7 @@ jQuery(document).ready(function($) {
 			    $('.slide-button>h5').eq(i).text(data.photos[i].name)
 			    $('.slide-button>.description').eq(i).text(data.photos[i].description)
 		  	}
-		  	
+
 
 		if( $slider.length ) {
 
@@ -214,11 +214,12 @@ jQuery(document).ready(function($) {
 		})
 
 
-		// BY = (function(){
+		BY = (function(){
 
 			var by = {
 				init:function(){
 					by.events()
+					by.parseBBC.init()
 				var url = 'http://vimeo.com/api/v2/channel/serialboxpresents/videos.json'
 				$.ajax({
 				  url:url,
@@ -226,16 +227,45 @@ jQuery(document).ready(function($) {
 				  dataType:'jsonp',
 				  success:function(data){
 				    for (var i=0;i<8;i++){
-			      	// console.log(data[i].title)      
-				      	console.log(data)
+			      	// console.log(data[i].title)
+				      	// console.log(data)
 				    	  $('.video-thumbs li').eq(i).find('a>h5').text(data[i].title)
 					      $('.video-thumbs li').eq(i).find('a>img').attr({
 					      	'src':data[i].thumbnail_medium
 					      })
 					      $('.video-thumbs li').eq(i).children('a').attr('data-videoid',data[i].id)
-					    }  
+					    }
 					  }
-					})						
+					})
+				},
+				parseBBC:{
+					init:function(){
+						by.parseBBC.getPhotos()
+					},
+					getPhotos:function(){
+						var radio1Photos = '/v1/bbc/radio1/photos'
+						$.ajax({
+							url:radio1Photos,
+							type:'get',
+							success:function(data){
+								console.log(data)
+								console.log(data.galleries)
+								var firstPhoto = data.galleries[0].recent_image_fullsize
+								console.log(firstPhoto)
+								$('#features-slider-audio').append('<img src='+firstPhoto+' />')
+                var photoTitle = data.galleries[0].gallery_title
+                // $('.audio-photo-thumbs li a h5').text(photoTitle)
+
+                for (var i=0;i<$('.audio-photo-thumbs li').length;i++){
+                  var photoTitle = data.galleries[i].gallery_title
+                  $('.audio-photo-thumbs li').eq(i).find('a h5').text(photoTitle)
+                  $('.audio-photo-thumbs li').eq(i).find('img').attr('src',data.galleries[i].recent_image_thumbnail)
+                  $('.audio-photo-thumbs li').eq(i).find('a span').text(data.galleries[i].created)
+                }
+
+							}
+						})
+					}
 				},
 				events:function(){
 					$('.video-thumbs').find('li>a').on('click',function(e){
@@ -252,31 +282,31 @@ jQuery(document).ready(function($) {
 					  success:function(data){
 					    console.log($(data).find('#featured>ul *'))
 					    $(data).find('#featured>ul img').remove()
-					    console.log($(data).find('#featured>ul img'))
+					    // console.log($(data).find('#featured>ul img'))
 					    var dataFeatNav = $(data).find('#featured>ul')
-					    console.log($(data).find('#featured>ul img').length)
+					    // console.log($(data).find('#featured>ul img').length)
 					//    $(data).find('#featured>ul img').remove()
-					    
+
 					    $('#main-nav li').eq(1).find('ul').append($(data).find('#featured>ul *'))
 					    $(data).find('#featured>ul img').remove()
-					       
+
 					  }
 					})
 					var links = $('.current').find('ul *')
 					$('.current').find('ul').empty()
 					// $('.current').find('ul').append(links)
-					
+
 				}
 			}
 			by.init()
 
-		// }())
+		}())
 
 
 
 
-		
-		
+
+
 	})();
 
 	/* end Features Slider */
@@ -292,7 +322,7 @@ jQuery(document).ready(function($) {
 		if( $slider.length ) {
 
 			$('#logos-slider').smartStartSlider({
-				pos             : 0, 
+				pos             : 0,
 				hideContent     : true,
 				contentPosition : 'center',
 				timeout         : 3000,
@@ -307,7 +337,7 @@ jQuery(document).ready(function($) {
 			});
 
 		}
-		
+
 	})();
 
 	/* end Logos Slider */
@@ -330,12 +360,12 @@ jQuery(document).ready(function($) {
 //     console.log(data.photos)
 //     $(data.photos).each(function(){
 //       $('body').prepend('<img src=' + this.image_url.replace('/2.','/4.') + '/ >')
-        
+
 //     })
 //   }
 // })
 
-			
+
 
 
 		// if( $slider.length ) {
@@ -361,7 +391,7 @@ jQuery(document).ready(function($) {
 
 
 
-		
+
 	})();
 
 	/* end Photos Slider */
@@ -372,7 +402,7 @@ jQuery(document).ready(function($) {
 
 	(function() {
 
-		var $carousel = $('.projects-carousel, .post-carousel,.video-thumbs');
+		var $carousel = $('.projects-carousel, .post-carousel,.video-thumbs,.audio-photo-thumbs');
 
 		if( $carousel.length ) {
 
@@ -412,7 +442,7 @@ jQuery(document).ready(function($) {
 
 			// Run slider when all images are fully loaded
 			$(window).load(function() {
-				
+
 				$slider.each(function(i) {
 					var $this = $(this);
 
@@ -439,9 +469,9 @@ jQuery(document).ready(function($) {
 							 timeout         : 0,
 							 width           : '100%'
 						 });
-					
+
 				});
-			
+
 				// Position nav
 				var $arrowNav = $('.image-gallery-slider-nav a');
 				$arrowNav.css('margin-top', - $arrowNav.height() / 2 );
@@ -452,7 +482,7 @@ jQuery(document).ready(function($) {
 				}).on('mouseleave', function() {
 					$(this).parent().prev().cycle('resume');
 				})
-				
+
 			});
 
 			// Resize
@@ -554,7 +584,7 @@ jQuery(document).ready(function($) {
 
 			// Fix for player, if in Image Gallery Slider
 			$('.mejs-fullscreen-button').on('click', 'button', function() {
-			
+
 				if( $(this).hasParent('.image-gallery-slider ul') ) {
 
 					// Minimize
@@ -622,7 +652,7 @@ jQuery(document).ready(function($) {
 
 			$allVideos.each(function(){
 				var $this = $(this);
-				if (this.tagName.toLowerCase() == 'embed' && $this.parent('object').length || $this.parent('.fluid-width-video-wrapper').length) { return; } 
+				if (this.tagName.toLowerCase() == 'embed' && $this.parent('object').length || $this.parent('.fluid-width-video-wrapper').length) { return; }
 				var height = this.tagName.toLowerCase() == 'object' ? $this.attr('height') : $this.height(),
 				aspectRatio = height / $this.width();
 				if(!$this.attr('id')){
@@ -677,7 +707,7 @@ jQuery(document).ready(function($) {
 		var fullWidth = $container.outerWidth(true);
 		$trigger.css('width', fullWidth);
 		$container.css('width', fullWidth);
-		
+
 		$trigger.on('click', function(e) {
 			if( $(this).next().is(':hidden') ) {
 				$trigger.removeClass('active').next().slideUp(300);
@@ -696,7 +726,7 @@ jQuery(document).ready(function($) {
 	})();
 
 	/* end Accordion Content */
-	
+
 	/* ---------------------------------------------------- */
 	/*	Content Tabs
 	/* ---------------------------------------------------- */
@@ -717,7 +747,7 @@ jQuery(document).ready(function($) {
 			$tabsNavLis.removeClass('active');
 			$this.addClass('active');
 			$tabContent.hide();
-			
+
 			$( $this.find('a').attr('href') ).fadeIn();
 
 			e.preventDefault();
@@ -751,7 +781,7 @@ jQuery(document).ready(function($) {
 						element.html( data );
 					}
 			});
-			
+
 		}
 
 		// Latest Tweets
@@ -763,7 +793,7 @@ jQuery(document).ready(function($) {
 		if( $flickrContainer.length ) fetchFeed( 'php/flickr.php', $flickrContainer );
 
 	})();
-		
+
 	/* end PHP Widgets */
 
 	/* ---------------------------------------------------------------------- */
@@ -778,14 +808,14 @@ jQuery(document).ready(function($) {
 
 		$form.append('<div id="response" class="hidden">');
 		var $response = $('#response');
-		
+
 		// Do what we need to when form is submitted.
 		$form.on('click', 'input[type=submit]', function(e){
 
 			// Hide any previous response text and show loader
 			$response.hide().html( $loader ).show();
-			
-			// Make AJAX request 
+
+			// Make AJAX request
 			$.post('php/contact-send.php', $form.serialize(), function( data ) {
 				// Show response message
 				$response.html( data );
@@ -794,7 +824,7 @@ jQuery(document).ready(function($) {
 				var bottomPosition = $form.offset().top + $form.outerHeight() - $(window).height();
 				if( $(document).scrollTop() < bottomPosition ) $('html, body').animate({ scrollTop : bottomPosition });
 			});
-			
+
 			// Cancel default action
 			e.preventDefault();
 		});
