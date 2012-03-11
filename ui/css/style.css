@@ -1,4 +1,4 @@
-/* ---------------------------------------------------------------------- */
+g/* ---------------------------------------------------------------------- */
 /*	Reset & Clearfix (http://meyerweb.com/eric/tools/css/reset/)
 /* ---------------------------------------------------------------------- */
 
@@ -1547,7 +1547,7 @@ input.placeholder, textarea.placeholder { color: #b0b0b0; }
 		
 		.projects-carousel li, .post-carousel li { width: 220px; }
 
-		.projects-carousel, #portfolio-items { font-family: 'Open Sans', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif; }
+		.projects-carousel, .video-thumbs, #portfolio-items { font-family: 'Open Sans', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif; }
 		
 		.no-js .post-carousel li {
 			display: inline-block;

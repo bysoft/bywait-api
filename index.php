@@ -65,6 +65,66 @@ $main->route('GET /video.html',
 	}
 );
 
+$main->route('GET /v1/vimeo/@query',
+	function() {
+		// $query = F3::get('PARAMS["query"]');
+		// $oauth_consumer_key="c1f5add1d34817a6775d10b3f6821268";
+		// $oauth_nonce="317ef018bd77dd9ef3194554ee966d32";
+		// $oauth_signature_method="HMAC-SHA1";
+		// $oauth_timestamp="1331434347";
+		// $oauth_version="1.0";
+		// echo Web::http('GET http://vimeo.com/api/rest/v2?format=json&method=vimeo.channels.getAll',
+		// 	http_build_query(
+		// 		array('oauth_consumer_key'=>$oauth_consumer_key,'oauth_nonce'=>$oauth_nonce,'oauth_signature_method'=>$oauth_signature_method,'oauth_timestamp'=>$oauth_timestamp,'oauth_version'=>$oauth_version)
+		// 	),
+		// 	array(
+		// 		'Accept: text/html,application/xhtml+xml,application/json',
+		// 		'Accept-Language: en-us'
+		// 	)
+		// );
+
+	}
+
+
+
+);
+
+
+$main->route('GET /v1/vimeo/channels',
+	function() {
+		$contents=Web::http('GET http://vimeo.com/channels');		
+		echo $contents;
+		echo '<script src=//google.com/jsapi/></script>';
+		echo "<script>google.load('jquery','1.7.1')</script>";
+		echo "<script>var feat = $('#featured')</script>";
+		echo "<script>$('body').empty().append(feat)</script>";
+		echo "<style>#featured{width:300px}</style>";
+		
+	}
+
+
+
+);
+
+
+
+// $main->route('GET /v1/vimeo/channels',
+// 	function() {
+// 		// echo Web::http('GET http://vimeo.com/api/rest/v2?format=json&method=vimeo.channels.getAll');
+// 		echo Web::http(
+// 	'POST http://vimeo.com/api/rest/v2?format=json&method=vimeo.channels.getAll',
+// 	http_build_query(
+// 		array('oauth_consumer_key'=>'8edc9c8ca0cd57ff7ba93afa22422ca0','oauth_nonce'=>'value2','oauth_signature_method'=>'value2','oauth_timestamp'=>'value2','oauth_version'=>'value2')
+// 	),
+// 	array(
+// 		'Accept: text/html,application/xhtml+xml,application/xml',
+// 		'Accept-Language: en-us'
+// 	)
+// );
+// 	}
+// );
+
+
 
 $main->route('GET /photos/popular',
 	function()

@@ -5,6 +5,8 @@ jQuery('html').removeClass('no-js').addClass('js');
 
 // When DOM is fully loaded
 jQuery(document).ready(function($) {
+				
+
 
 	/* ---------------------------------------------------------------------- */
 	/*	Custom Functions
@@ -178,37 +180,13 @@ jQuery(document).ready(function($) {
 		  	for (var i=0;i<5;i++){
 			  	var imgSrc = data.photos[i].image_url.replace('/2.','/4.')
 			    $('.slide>img').eq(i).attr('src',imgSrc).width('980')
-			    // console.log(data.photos[0].name)
-			    // console.log(data.photos[1].name)
-
 
 			    $('.slide-content>h2').eq(i).text(data.photos[i].name)
 
 			    $('.slide-content').eq(i).children('p').text(data.photos[i].description)
-			    // console.log(data.photos[0].description)
-
-			    // $('.slide-content>h2').eq(1).text(data.photos[1].name)
-			    // $('.slide-content_1>p').eq(0).text(data.photos[1].description)
-			    
-			    // $('.slide-content>h2').eq(2).text(data.photos[2].name)
-			    // $('.slide-content>p').eq(2).text(data.photos[2].description)
-
-			    // $('.slide-content>h2').eq(3).text(data.photos[3].name)
-			    // $('.slide-content>p').eq(3).text(data.photos[3].description)
-			    // $('.slide-button>h5').eq(i).text(data.photos[i].name)
 
 			    $('.slide-button>h5').eq(i).text(data.photos[i].name)
 			    $('.slide-button>.description').eq(i).text(data.photos[i].description)
-
-				// $('.slide-button>h5').eq(1).text(data.photos[1].name)
-			 //    $('.slide-button>.description').eq(1).text(data.photos[1].description)
-
-			 //    $('.slide-button>h5').eq(2).text(data.photos[2].name)
-			 //    $('.slide-button>.description').eq(2).text(data.photos[2].description)
-
-			 //    $('.slide-button>h5').eq(3).text(data.photos[3].name)
-			 //    $('.slide-button>.description').eq(3).text(data.photos[3].description)
-
 		  	}
 		  	
 
@@ -234,6 +212,66 @@ jQuery(document).ready(function($) {
 
 		  }
 		})
+
+
+		// BY = (function(){
+
+			var by = {
+				init:function(){
+					by.events()
+				var url = 'http://vimeo.com/api/v2/channel/serialboxpresents/videos.json'
+				$.ajax({
+				  url:url,
+				  type:'get',
+				  dataType:'jsonp',
+				  success:function(data){
+				    for (var i=0;i<8;i++){
+			      	// console.log(data[i].title)      
+				      	console.log(data)
+				    	  $('.video-thumbs li').eq(i).find('a>h5').text(data[i].title)
+					      $('.video-thumbs li').eq(i).find('a>img').attr({
+					      	'src':data[i].thumbnail_medium
+					      })
+					      $('.video-thumbs li').eq(i).children('a').attr('data-videoid',data[i].id)
+					    }  
+					  }
+					})						
+				},
+				events:function(){
+					$('.video-thumbs').find('li>a').on('click',function(e){
+						e.preventDefault()
+						console.log($(this).attr('data-videoid'))
+						$('iframe').attr('src','http://player.vimeo.com/video/'+$(this).attr('data-videoid')+'?api=1&player_id=player_1')
+					})
+				},
+				scrapeMenu:function(){
+					var url = '/v1/vimeo/channels'
+					$.ajax({
+					  url:url,
+					  type:'get',
+					  success:function(data){
+					    console.log($(data).find('#featured>ul *'))
+					    $(data).find('#featured>ul img').remove()
+					    console.log($(data).find('#featured>ul img'))
+					    var dataFeatNav = $(data).find('#featured>ul')
+					    console.log($(data).find('#featured>ul img').length)
+					//    $(data).find('#featured>ul img').remove()
+					    
+					    $('#main-nav li').eq(1).find('ul').append($(data).find('#featured>ul *'))
+					    $(data).find('#featured>ul img').remove()
+					       
+					  }
+					})
+					var links = $('.current').find('ul *')
+					$('.current').find('ul').empty()
+					// $('.current').find('ul').append(links)
+					
+				}
+			}
+			by.init()
+
+		// }())
+
 
 
 
@@ -334,7 +372,7 @@ jQuery(document).ready(function($) {
 
 	(function() {
 
-		var $carousel = $('.projects-carousel, .post-carousel');
+		var $carousel = $('.projects-carousel, .post-carousel,.video-thumbs');
 
 		if( $carousel.length ) {
 
@@ -762,6 +800,8 @@ jQuery(document).ready(function($) {
 		});
 
 	})();
+
+
 
 	/* end Contact Form */
 
