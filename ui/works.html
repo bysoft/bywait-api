@@ -41,7 +41,8 @@
 
 	<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+    <![endif]-->
+    <script data-main="scripts/main" type="text/javascript" src="scripts/require-jquery.js"></script>
 </head>
 <body>
 
@@ -55,62 +56,24 @@
 
 		<ul>
 			<li>
-				<a href="/" data-description="All starts here">Home</a>
+				<a href="index-2.html" data-description="All starts here">Home</a>
 			</li>
 			<li>
 				<a href="video.html" data-description="Vimeo channels">Video</a>
-				<ul>
+<!--
+        <ul>
 					<li><a href="about-us.html">dynamic channel 1</a></li>
 					<li><a href="our-team.html">dynamic channel 2</a>
-				</ul>
+        </ul>
+        -->
+
 			</li>
 			<li>
 				<a href="music.html" data-description="music project">Music</a>
-        </li>
-        <li class=current>
-        	<a href="works.html" data-description"Recent works">Works</a>
-        </li>
-
-			<!-- <li>
-				<a href="elements.html" data-description="All the different stuff">Features</a>
-				<ul>
-					<li><a href="about-us.html">About Us</a></li>
-					<li><a href="our-team.html">Our Team</a>
-						<ul>
-							<li><a href="we-are-hiring.html">We are hiring</a></li>
-						</ul>
-					</li>
-					<li><a href="elements.html">Elements</a></li>
-					<li><a href="pricing-tables.html">Pricing Tables</a></li>
-					<li><a href="columns.html">Columns</a></li>
-					<li><a href="#">Third Level Item</a>
-						<ul>
-							<li><a href="#">This is a simple example</a></li>
-							<li><a href="#">Of the third level</a></li>
-							<li><a href="#">Navigation item</a></li>
-						</ul>
-					</li>
-				</ul>
 			</li>
-			<li>
-				<a href="blog.html" data-description="What we think">Blog</a>
-				<ul>
-					<li><a href="#">Single Post</a></li>
-				</ul>
-			</li>
-			<li>
-				<a href="portfolio-4-columns.html" data-description="Work we are proud of">Portfolio</a>
-				<ul>
-					<li><a href="portfolio-2-columns.html">2 Columns</a></li>
-					<li><a href="portfolio-3-columns.html">3 Columns</a></li>
-					<li><a href="portfolio-4-columns.html">4 Columns</a></li>
-					<li><a href="#">Single Project</a></li>
-				</ul>
-			</li>
-			<li>
-				<a href="contact-us.html" data-description="Enquire here">Contact</a>
-			</li> -->
-		</ul>
+        <li class="current">
+        	<a href="works.html" data-description="Recent works">Works</a>
+        </li>		</ul>
 
 	</nav><!-- end #main-nav -->
 
@@ -118,16 +81,86 @@
 
 <section id="content" class="container clearfix">
 
-	<h2 class="slogan align-center">Audio project featuring radio1<br />
-	</h2>
+	<h2 class="slogan align-center">Here are some interesting photos from 500px.</h2>
 
-	<section id="features-slider-audio" class="ss-slider-vid">
+	<section id="features" class="">
+
+		<article class="slide">
+    <img src='https://api.url2png.com/v3/P4DE5D1C99D8EF/7bbb6e0d1b74fb0ae1d4f18b06320096/400x400/virb.com' class=bg-image />
+
+			<div class="slide-button">
+				<span class="dropcap">1</span>
+				<h5></h5>
+				<span class="description"></span>
+			</div>
+
+			<div class="slide-content">
+				<h2></h2>
+				<p></p>
+				<p><a class="button" href="#">Read More</a></p>
+			</div>
+
+		</article><!-- end .slide (Responsive Layout) -->
+
+		<article class="slide">
+
+			<img src="/" alt="" class="slide-bg-image" />
+
+			<div class="slide-button">
+				<span class="dropcap">2</span>
+				<h5>HTML5 / CSS3</h5>
+        <span class="description"></span>
+      </div>
+
+			<div class="slide-content">
+				<h2>HTML5 / CSS3</h2>
+        <p></p>
+        <p><a class="button" href="#">Read More</a></p>
+			</div>
+
+		</article><!-- end .slide (HTML5 / CSS3) -->
+
+		<article class="slide">
+
+			<img src="/" alt="" class="slide-bg-image" />
+
+			<div class="slide-button">
+				<span class="dropcap">3</span>
+        <h5></h5>
+        <span class="description"></span>
+			</div>
+
+			<div class="slide-content">
+        <h2></h2>
+        <p></p>
+        <p><a class="button" href="#">Read More</a></p>
+			</div>
+
+		</article><!-- end .slide (Easily Customisable) -->
+
+		<article class="slide">
+
+			<img src="/" alt="" class="slide-bg-image" />
+
+			<div class="slide-button">
+				<span class="dropcap">4</span>
+				<h5>Unique &amp; Clean</h5>
+        <span class="description"></span>
+      </div>
+
+			<div class="slide-content">
+				<h2>Unique &amp; Clean</h2>
+        <p></p>
+        <p><a class="button" href="#">Read More</a></p>
+			</div>
+
+		</article><!-- end .slide (Unique & Clean) -->
 
 	</section><!-- end #features-slider -->
 
-	<h6 class="section-title">Photos from radio1</h6>
+	<h6 class="section-title">Popular Photos on 500px</h6>
 
-	<ul class="audio-photo-thumbs clearfix">
+	<ul class="projects-carousel clearfix">
 
 		<li>
 			<a href="#">
@@ -196,6 +229,7 @@
 	</ul><!-- end .projects-carousel -->
 
 
+	<ul class="post-carousel">
 
 
 
@@ -210,7 +244,7 @@
 			<nav id="footer-nav" class="clearfix">
 
 				<ul>
-					<li><a href="index-2.html">Home</a></li>
+					<li><a href="/">Home</a></li>
 					<li><a href="elements.html">Features</a></li>
 					<li><a href="blog.html">Blog</a></li>
 					<li><a href="portfolio-4-columns.html">Portfolio</a></li>
