@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 
 <!--
- __     
-|__)\_/ 
-|__) |                       
+ __
+|__)\_/
+|__) |
 
-.-. .-. .-. .-. . . . .-. .-. .-.   .-. . . .-. 
-`-. | | |-   |  | | | |-| |(  |-     |  |\| |   
-`-' `-' '    '  `.'.' ` ' ' ' `-'   `-' ' ` `-' 
-                                                
+.-. .-. .-. .-. . . . .-. .-. .-.   .-. . . .-.
+`-. | | |-   |  | | | |-| |(  |-     |  |\| |
+`-' `-' '    '  `.'.' ` ' ' ' `-'   `-' ' ` `-'
+
 -->
 
 <!--[if IE 7]>                  <html class="ie7 no-js" lang="en">     <![endif]-->
@@ -19,17 +19,17 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	
+
 	<title>Brian Yang</title>
-	
+
 	<meta name="description" content="">
 	<meta name="author" content="Brian Yang">
-	
+
 	<!--[if !lte IE 6]><!-->
 		<link rel="stylesheet" href="/ui/css/style.css" media="screen" />
 
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,800,700,400italic|PT+Serif:400,400italic" />
-		
+
 		<link rel="stylesheet" href="/ui/css/fancybox.min.css" media="screen" />
 
 		<link rel="stylesheet" href="/ui/css/mediaelementplayer.min.css" media="screen" />
@@ -41,7 +41,8 @@
 
 	<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+    <![endif]-->
+    <script data-main="scripts/main" type="text/javascript" src="scripts/require-jquery.js"></script>
 </head>
 <body>
 
@@ -52,64 +53,30 @@
 	</a>
 
 	<nav id="main-nav">
-		
+
 		<ul>
 			<li class="current">
 				<a href="index-2.html" data-description="All starts here">Home</a>
 			</li>
 			<li>
 				<a href="video.html" data-description="Vimeo channels">Video</a>
-				<ul>
+<!--
+        <ul>
 					<li><a href="about-us.html">dynamic channel 1</a></li>
 					<li><a href="our-team.html">dynamic channel 2</a>
-				</ul>
+        </ul>
+        -->
+
 			</li>
 			<li>
 				<a href="music.html" data-description="music project">Music</a>
 			</li>
-			<!-- <li>
-				<a href="elements.html" data-description="All the different stuff">Features</a>
-				<ul>
-					<li><a href="about-us.html">About Us</a></li>
-					<li><a href="our-team.html">Our Team</a>
-						<ul>
-							<li><a href="we-are-hiring.html">We are hiring</a></li>
-						</ul>
-					</li>
-					<li><a href="elements.html">Elements</a></li>
-					<li><a href="pricing-tables.html">Pricing Tables</a></li>
-					<li><a href="columns.html">Columns</a></li>
-					<li><a href="#">Third Level Item</a>
-						<ul>
-							<li><a href="#">This is a simple example</a></li>
-							<li><a href="#">Of the third level</a></li>
-							<li><a href="#">Navigation item</a></li> 
-						</ul>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<a href="blog.html" data-description="What we think">Blog</a>
-				<ul>
-					<li><a href="#">Single Post</a></li>
-				</ul>
-			</li>
-			<li>
-				<a href="portfolio-4-columns.html" data-description="Work we are proud of">Portfolio</a>
-				<ul>
-					<li><a href="portfolio-2-columns.html">2 Columns</a></li>
-					<li><a href="portfolio-3-columns.html">3 Columns</a></li>
-					<li><a href="portfolio-4-columns.html">4 Columns</a></li>
-					<li><a href="#">Single Project</a></li>
-				</ul>
-			</li>
-			<li>
-				<a href="contact-us.html" data-description="Enquire here">Contact</a>
-			</li> -->
-		</ul>
+        <li>
+        	<a href="works.html" data-description"Recent works">Works</a>
+        </li>		</ul>
 
 	</nav><!-- end #main-nav -->
-	
+
 </header><!-- end #header -->
 
 <section id="content" class="container clearfix">
@@ -118,79 +85,79 @@
 	Constantly challenging standards.</h2>
 
 	<section id="features-slider" class="ss-slider">
-	
+
 		<article class="slide">
-		
+
 			<img src="/" alt="" class="slide-bg-image" />
-			
+
 			<div class="slide-button">
 				<span class="dropcap">1</span>
 				<h5>Responsive Layout</h5>
 				<span class="description">From desktop to mobile</span>
 			</div>
-		
+
 			<div class="slide-content">
 				<h2>Responsive Layout</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec purus justo.</p>
 				<p><a class="button" href="#">Read More</a></p>
 			</div>
-			
+
 		</article><!-- end .slide (Responsive Layout) -->
-	
+
 		<article class="slide">
-		
+
 			<img src="/" alt="" class="slide-bg-image" />
-		
-			<div class="slide-button">		
+
+			<div class="slide-button">
 				<span class="dropcap">2</span>
 				<h5>HTML5 / CSS3</h5>
 				<span class="description">For today and tomorrow</span>
 			</div>
-			
+
 			<div class="slide-content">
 				<h2>HTML5 / CSS3</h2>
 				<p>Hendrerit eleifend condimentum quis, varius at lacus. Donec ultrices justo scelerisque erat feugiat sed mattis justo volutpat.</p>
 				<p><a class="button" href="#">Read More</a></p>
 			</div>
-			
+
 		</article><!-- end .slide (HTML5 / CSS3) -->
-	
+
 		<article class="slide">
-		
+
 			<img src="/" alt="" class="slide-bg-image" />
-		
+
 			<div class="slide-button">
 				<span class="dropcap">3</span>
 				<h5>Easily Customisable</h5>
 				<span class="description">Build the way you want!</span>
 			</div>
-			
+
 			<div class="slide-content">
 				<h2>Easily Customisable</h2>
 				<p>Etiam at nunc felis, vitae gravida libero. Morbi molestie elit eget metus volutpat vitae bibendum quam lacinia. Maecenas porttitor blandit nisl sit amet blandit. Phasellus porta sodales accumsan.</p>
 				<p><a class="button" href="#">Read More</a></p>
 			</div>
-			
+
 		</article><!-- end .slide (Easily Customisable) -->
-	
+
 		<article class="slide">
-		
+
 			<img src="/" alt="" class="slide-bg-image" />
-		
+
 			<div class="slide-button">
 				<span class="dropcap">4</span>
 				<h5>Unique &amp; Clean</h5>
 				<span class="description">Stand out from the crowd!</span>
 			</div>
-			
+
 			<div class="slide-content">
 				<h2>Unique &amp; Clean</h2>
 				<p>Fusce porta elit quis nunc mollis ut lacinia eros accumsan. Aenean consequat egestas diam, vel pharetra tellus venenatis in.</p>
 				<p><a class="button" href="#">Read More</a></p>
 			</div>
-			
+
 		</article><!-- end .slide (Unique & Clean) -->
-		
+
 	</section><!-- end #features-slider -->
 
 	<h6 class="section-title">Popular Photos on 500px</h6>
@@ -267,7 +234,7 @@
 	<ul class="post-carousel">
 
 
-	
+
 </section><!-- end #content -->
 
 <footer id="footer" class="clearfix">
@@ -285,7 +252,7 @@
 					<li><a href="portfolio-4-columns.html">Portfolio</a></li>
 					<li><a href="contact-us.html">Contact</a></li>
 				</ul>
-				
+
 			</nav><!-- end #footer-nav -->
 
 			<ul class="contact-info">
@@ -293,7 +260,7 @@
 				<!-- <li class="phone">(123) 456-7890</li> -->
 				<!-- <li class="email"><a href="mailto:contact@companyname.com">contact@companyname.com</a></li> -->
 			</ul><!-- end .contact-info -->
-			
+
 		</div><!-- end .three-fourth -->
 
 		<div class="one-fourth last">
@@ -310,7 +277,7 @@
 			</ul><!-- end .social-links -->
 
 		</div><!-- end .one-fourth.last -->
-		
+
 	</div><!-- end .container -->
 
 </footer><!-- end #footer -->

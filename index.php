@@ -67,7 +67,12 @@ $main->route('GET /',
 		echo Template::serve('index.html');
 	}
 );
+$main->route('GET /works.html',
+  function(){
+    echo Template::serve('works.html');
+  }
 
+  );
 $main->route('GET /video.html',
 	function() {
 		echo Template::serve('video.html');
@@ -83,6 +88,7 @@ $main->route('GET /music.html',
 F3::route('GET /v1/bbc/radio1/mix','bbcdata->essentialMix');
 F3::route('GET /v1/bbc/radio1/playing','bbcdata->nowPlaying');
 F3::route('GET /v1/bbc/radio1/photos','bbcdata->latestPhotos');
+F3::route('GET /v1/bbc/radio1/getListings','bbcdata->getListings');
 
 class bbcdata {
 	function essentialMix() {
@@ -94,15 +100,19 @@ class bbcdata {
 	function nowPlaying(){
     	$nowPlaying = 'http://www.bbc.co.uk/radio1/nowplaying/latest.json';
 	    $content = Web::http('GET ' . $nowPlaying);
-		header('Content-type: application/json');	    
-	    echo $content;	
-	}	
+		header('Content-type: application/json');
+	    echo $content;
+	}
 	function latestPhotos(){
 	    $latestPhotos = 'http://www.bbc.co.uk/radio1/photos/latest.json';
 	    $content = Web::http('GET ' . $latestPhotos);
 		header('Content-type: application/json');
 	    echo $content;
-	}
+  }
+  function getListings(){
+    $content = Web::http('GET http://www.bbc.co.uk/programmes/b01cpqly');
+    echo $content;
+  }
 }
 
 

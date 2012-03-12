@@ -220,6 +220,7 @@ jQuery(document).ready(function($) {
 				init:function(){
 					by.events()
 					by.parseBBC.init()
+          by.roviData.getCovers()
 				var url = 'http://vimeo.com/api/v2/channel/serialboxpresents/videos.json'
 				$.ajax({
 				  url:url,
@@ -238,6 +239,12 @@ jQuery(document).ready(function($) {
 					  }
 					})
 				},
+        roviData:{
+          init:function(){},
+          getCovers:function(){
+            console.log('code here')
+          }
+        },
 				parseBBC:{
 					init:function(){
 						by.parseBBC.getPhotos()
@@ -248,17 +255,18 @@ jQuery(document).ready(function($) {
 							url:radio1Photos,
 							type:'get',
 							success:function(data){
-								console.log(data)
-								console.log(data.galleries)
+								//console.log(data)
+								//console.log(data.galleries)
 								var firstPhoto = data.galleries[0].recent_image_fullsize
-								console.log(firstPhoto)
-								$('#features-slider-audio').append('<img src='+firstPhoto+' />')
+								//console.log(firstPhoto)
+								$('#features-slider-audio').append('<img style=max-width:100% src='+firstPhoto+' />')
                 var photoTitle = data.galleries[0].gallery_title
                 // $('.audio-photo-thumbs li a h5').text(photoTitle)
 
                 for (var i=0;i<$('.audio-photo-thumbs li').length;i++){
                   var photoTitle = data.galleries[i].gallery_title
-                  $('.audio-photo-thumbs li').eq(i).find('a h5').text(photoTitle)
+                  $('.audio-photo-thumbs li').eq(i).find('a').attr('href',data.galleries[i].galler_url)
+                  $('.audio-photo-thumbs li').eq(i).find('a h5').attr('data-id',data.galleries[i].gallery_id).text(photoTitle)
                   $('.audio-photo-thumbs li').eq(i).find('img').attr('src',data.galleries[i].recent_image_thumbnail)
                   $('.audio-photo-thumbs li').eq(i).find('a span').text(data.galleries[i].created)
                 }
