@@ -221,8 +221,11 @@ jQuery(document).ready(function($) {
 					by.events()
 					by.parseBBC.init()
           by.roviData.getCovers()
+          by.video.youtube()
 				var url = 'http://vimeo.com/api/v2/channel/serialboxpresents/videos.json'
-				$.ajax({
+
+			/*
+        $.ajax({
 				  url:url,
 				  type:'get',
 				  dataType:'jsonp',
@@ -238,11 +241,17 @@ jQuery(document).ready(function($) {
 					    }
 					  }
 					})
+      */
 				},
+        video:{
+          youtube: function(){
+            console.log('yt')
+          }
+        },
         roviData:{
           init:function(){},
           getCovers:function(){
-            console.log('code here')
+            //console.log('code here')
           }
         },
 				parseBBC:{
@@ -307,7 +316,7 @@ jQuery(document).ready(function($) {
 				}
 			}
 			by.init()
-
+      return by;
 		}())
 
 
