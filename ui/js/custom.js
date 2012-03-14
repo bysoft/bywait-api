@@ -257,11 +257,13 @@ jQuery(document).ready(function($) {
                       //console.log(data.feed.entry)
                      // console.log(data.feed.entry.length)
                       $(data.feed.entry).each(function(){
-                       //   console.log(this.title.$t)
+                       //   console.log(this.title.$t)i
+console.log(data)
                           dataArr.push({
                               title:this.title.$t,
                               thumb:this.media$group.media$thumbnail[1].url,
-                              url:this.link[0].href
+                              url:this.link[0].href,
+                              videoid:''
                             })
                         })
                         // link[i].href
@@ -269,23 +271,22 @@ jQuery(document).ready(function($) {
                           data:dataArr
                         }
                         // todo: iterate through data obj and fill dom
-                        var output = Mustache.render("show title {{title}}",by.video.config.data)
-                          console.log(by.video.config)
-                        // $('body').prepend(output)
-                        //console.log(output)
+                        var dataObj = {title:'this title'}
+                        var i = 0, listArr = [],
+
+                            dataTpl = '<h5>{{title}}</h5v>'
+                            var dataTpl = '<li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" style="float: left; list-style-type: none; list-style-position: initial; list-style-image: initial; " jcarouselindex="1"><a href="#!{{url}}" ><img src="{{thumb}}" alt=""><h5 class="title"></h5><span class="categories">{{title}}</span></a></li>'
 
 
-var view = {
-  title: "Joe",
-  calc: function () {
-    return 2 + 4;
-  }
-};
 
-var output = Mustache.render("{{title}} spends {{calc}}", view);
-console.log(output)
-
-
+                        $(by.video.config.data).each(function(){
+                            var listSnippet = Mustache.render(dataTpl, by.video.config.data[i])
+                              console.log(listSnippet)
+                              $('.video-thumbs').append(listSnippet)
+                              listArr.push(listSnippet)
+                              i++
+                            })
+                          console.log(listArr)
                     }
                   })
           }
