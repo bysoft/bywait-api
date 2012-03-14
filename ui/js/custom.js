@@ -275,7 +275,7 @@ console.log(data)
                         var i = 0, listArr = [],
 
                             dataTpl = '<h5>{{title}}</h5v>'
-                            var dataTpl = '<li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" style="float: left; list-style-type: none; list-style-position: initial; list-style-image: initial; " jcarouselindex="1"><a href="#!{{url}}" ><img src="{{thumb}}" alt=""><h5 class="title"></h5><span class="categories">{{title}}</span></a></li>'
+                            var dataTpl = '<li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" style="float: left; list-style-type: none; list-style-position: initial; list-style-image: initial; " jcarouselindex="1"><a data-videoid="{{url}}" href="#!{{url}}" ><img src="{{thumb}}" alt=""><h5 class="title"></h5><span class="categories">{{title}}</span></a></li>'
 
 
 
@@ -328,10 +328,11 @@ console.log(data)
 					}
 				},
 				events:function(){
-					$('.video-thumbs').find('li>a').on('click',function(e){
+					$('.video-thumbs').find('li>a').live('click',function(e){
 						e.preventDefault()
 						console.log($(this).attr('data-videoid'))
-						$('iframe').attr('src','http://player.vimeo.com/video/'+$(this).attr('data-videoid')+'?api=1&player_id=player_1')
+            var videoId = $(this).attr('data-videoid').split('?v=')[1].split('&feature')[0]
+						$('iframe').attr('src','http://www.youtube.com/embed/'+videoId)
 					})
 				},
 				scrapeMenu:function(){
