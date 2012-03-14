@@ -244,8 +244,50 @@ jQuery(document).ready(function($) {
       */
 				},
         video:{
-          youtube: function(){
-            console.log('yt')
+          youtube: function(dataArr){
+
+              var url = 'http://gdata.youtube.com/feeds/api/standardfeeds/most_viewed?max-results=50&alt=json&format=1'
+              dataArr = []
+
+                  $.ajax({
+                    url:url,
+                    type:'get',
+                    success:function(data){
+                    // console.log(data)
+                      //console.log(data.feed.entry)
+                     // console.log(data.feed.entry.length)
+                      $(data.feed.entry).each(function(){
+                       //   console.log(this.title.$t)
+                          dataArr.push({
+                              title:this.title.$t,
+                              thumb:this.media$group.media$thumbnail[1].url,
+                              url:this.link[0].href
+                            })
+                        })
+                        // link[i].href
+                        by.video.config = {
+                          data:dataArr
+                        }
+                        // todo: iterate through data obj and fill dom
+                        var output = Mustache.render("show title {{title}}",by.video.config.data)
+                          console.log(by.video.config)
+                        // $('body').prepend(output)
+                        //console.log(output)
+
+
+var view = {
+  title: "Joe",
+  calc: function () {
+    return 2 + 4;
+  }
+};
+
+var output = Mustache.render("{{title}} spends {{calc}}", view);
+console.log(output)
+
+
+                    }
+                  })
           }
         },
         roviData:{
