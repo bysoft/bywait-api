@@ -333,6 +333,7 @@ console.log(data)
 						console.log($(this).attr('data-videoid'))
             var videoId = $(this).attr('data-videoid').split('?v=')[1].split('&feature')[0]
 						$('iframe').attr('src','http://www.youtube.com/embed/'+videoId)
+            $('body').scrollTop('200')
 					})
 				},
 				scrapeMenu:function(){
